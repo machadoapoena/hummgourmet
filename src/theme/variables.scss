@@ -74,9 +74,26 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** correct **/
+  --ion-color-correct: #A33730;
+  --ion-color-correct-rgb: 163,55,48;
+  --ion-color-correct-contrast: #ffffff;
+  --ion-color-correct-contrast-rgb: 255,255,255;
+  --ion-color-correct-shade: #8f302a;
+  --ion-color-correct-tint: #ac4b45;
 }
 
-@media (prefers-color-scheme: dark) {
+.ion-color-correct {
+  --ion-color-base: var(--ion-color-correct)  !important;; 
+  --ion-color-base-rgb: var(--ion-color-correct-rgb)  !important;;
+  --ion-color-contrast: var(--ion-color-correct-contrast)  !important;;
+  --ion-color-contrast-rgb: var(--ion-color-correct-contrast-rgb)  !important;;
+  --ion-color-shade: var(--ion-color-correct-shade)  !important;;
+  --ion-color-tint: var(--ion-color-correct-tint)  !important;;
+}
+
+@media (prefers-color-scheme: light) {
   /*
    * Dark Colors
    * -------------------------------------------
@@ -146,6 +163,8 @@
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
   }
+
+
 
   /*
    * iOS Dark Theme

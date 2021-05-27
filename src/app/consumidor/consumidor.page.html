@@ -1,0 +1,77 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="correct">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Consumidores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+
+
+  <ion-list>
+    <ion-card *ngFor="let consumer of consumerList; ; let i = index" style="border-top: 5px solid #AA8C61; background-color: #92806A;">
+
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="../../assets/img/20150117_112027.jpg">
+        </ion-avatar>
+        <ion-label>
+          <ion-text><h3><b>{{consumer.name}}</b></h3></ion-text>
+          <p>{{consumer.mobileNumber}}<br/><ion-text color="dark"><i>{{consumer.address}}</i></ion-text></p>
+        </ion-label>
+      </ion-item>
+      <ion-footer>
+        <ion-row>
+          <ion-col style="text-align: center;">
+            <ion-text color="light">
+              <p style="font-size: 15px; font-weight: bold; margin: 5px;">R$ {{consumer.moneySpend}}</p>
+            </ion-text>
+          </ion-col>
+          <ion-col style="text-align: center;">
+            <ion-text color="light">
+              <p style="margin-top: 5px;"><ion-icon name="thumbs-up"></ion-icon>
+              {{consumer.qtdOrder}} pedidos</p>
+            </ion-text>
+          </ion-col>
+
+          <ion-col style="text-align: center;">
+            <ion-text color="light">
+              <p  style="margin-top: 5px;"><ion-icon name="time"></ion-icon>
+              11h ago</p>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-footer>
+     <!-- <ion-grid>
+        <ion-row>
+          <ion-col size="1" style="background-color: #AA8C61;">
+            
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-avatar item-start> <img src="https://material.angular.io/assets/img/examples/shiba1.jpg"> </ion-avatar>
+              <h2>Marty McFly</h2>
+            </ion-item> 
+            <ion-card-content>
+              <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>-->
+
+<!--
+      <img src="./madison.jpg" />
+      <ion-card-header>
+        <ion-card-subtitle>{{consumer.mobileNumber}}</ion-card-subtitle>
+        <ion-card-title>{{consumer.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{consumer.address}}
+      </ion-card-content>-->
+    </ion-card>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="correct">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="productForm" (ngSubmit)="createProduct()">
+        <ion-item>
+          <ion-label position="stacked">Nome</ion-label>
+          <ion-input type="text" clearInput formControlName="name"></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col col-3 >
+            <ion-item>
+              <ion-label position="stacked">Qtd.</ion-label>
+              <ion-input type="number" formControlName="quantidade"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-3 >
+            <ion-item>
+              <ion-label position="stacked">Medida</ion-label>
+              <ion-select placeholder="Selecione" formControlName="unidadeMedida">
+                <ion-select-option *ngFor="let item of unidadeMedida | keyvalue" [value]="item.value">{{item.value}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="dark" shape="full" expand="block" [disabled]="productForm.invalid">Salvar</ion-button>
+          </ion-col>
+        </ion-row>  
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-searchbar showcancelbutton="" (ionInput)="filterList($event)"></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let product of productList; ; let i = index" >
+      <ion-label>
+        <h3>{{product.name}}</h3>
+        <p>{{product.quantidade}} {{product.unidadeMedida}}</p>
+      </ion-label>
+      <!--<ion-label>
+        <h5>
+          <ion-icon name="person"></ion-icon> {{product.name}}
+        </h5>
+        <p>
+          <ion-icon name="call"></ion-icon> {{booking.mobile}}
+        </p>
+      </ion-label>-->
+
+ 
+        <!--<button ion-button clear [routerLink]="['/edit-appointment/', booking.$key]">
+          <ion-icon name="create" style="zoom:2.0"></ion-icon>
+        </button>-->
+        <ion-button color="light" (click)="editProduct(product.$key)" item-end>Alterar</ion-button>
+        <ion-button color="correct" (click)="removeProduct(i, product.$key)" item-end>Excluir</ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
