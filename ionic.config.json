@@ -1,5 +1,7 @@
 {
   "name": "hummgourmet",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
